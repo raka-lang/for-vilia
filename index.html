@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Vilyy 🤍</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#f8b6c1;
+overflow:hidden;
+text-align:center;
+}
+
+/* LOVE FALL */
+.heart{
+position:fixed;
+color:#ff3366;
+font-size:20px;
+animation:fall 5s linear infinite;
+z-index:1;
+}
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+/* GENERAL CONTAINER */
+.container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+max-width:450px;
+z-index:2;
+}
+
+input{
+padding:10px;
+width:70%;
+border-radius:20px;
+border:none;
+outline:none;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+margin-top:15px;
+}
+
+.hidden{display:none;}
+
+img{
+width:220px;
+border-radius:15px;
+margin-top:20px;
+}
+
+.by{
+position:fixed;
+bottom:10px;
+width:100%;
+color:white;
+font-size:12px;
+z-index:3;
+}
+
+/* SURAT */
+.envelope{
+position:relative;
+width:300px;
+height:200px;
+background:white;
+margin:auto;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+overflow:hidden;
+}
+
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:pink;
+clip-path: polygon(0 0, 100% 0, 50% 60%);
+transform-origin:top;
+transition:1s;
+}
+
+.letter{
+position:absolute;
+padding:20px;
+opacity:0;
+transition:1s;
+color:black;
+font-size:14px;
+overflow:auto;
+height:100%;
+}
+
+.open .flap{transform:rotateX(180deg);}
+.open .letter{opacity:1;}
+
+.bigflower{font-size:100px;}
+
+/* FULLSCREEN PAGES */
+#page6, #page7{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#ff9eb5;
+display:none;
+overflow:hidden;
+z-index:2;
+}
+
+/* BACKGROUND FLOWERS */
+.bg-flower{
+position:absolute;
+font-size:70px;
+opacity:0.12;
+animation:float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+100%{transform:translateY(25px);}
+}
+
+.flower-top,
+.flower-bottom{
+color:#ff69b4;
+font-size:20px;
+margin:15px 0;
+}
+
+.longtext{
+color:white;
+font-size:16px;
+line-height:1.8;
+padding:10px 20px;
+max-height:55vh;
+overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" src="music.mp3" loop></audio>
+<audio id="openSound" src="open.mp3"></audio>
+
+<div id="hearts"></div>
+
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+<h2 style="color:white;">Masukkan Sandinya Sayanggg 🤍</h2>
+<input type="password" id="pass">
+<button onclick="togglePass()">👁</button><br>
+<button onclick="checkPass()">Masuk</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="container hidden" id="page2">
+<div class="bigflower">💐</div>
+<h1 id="valText" style="color:white;"></h1>
+</div>
+
+<!-- PAGE 3 -->
+<div class="container hidden" id="page3">
+<h2 style="color:white;">Untuk Vilia Sayanggg 🤍</h2>
+<div class="envelope" onclick="openLetter()">
+<div class="flap"></div>
+<div class="letter" id="letterText"></div>
+</div>
+<br>
+<button onclick="nextGame()">Lanjut 🎁</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="container hidden" id="page4">
+<h2 style="color:white;">Game: Dia Itu Siapa? 🤍</h2>
+<img src="foto.jpeg">
+<p style="color:white;">Dia yang paling cantik di dunia adalah?</p>
+<input type="text" id="answer">
+<br>
+<button onclick="checkGame()">Jawab</button>
+</div>
+
+<!-- PAGE 5 COKLAT -->
+<div class="container hidden" id="page5">
+<h2 style="color:white;">Hadiah Untuk Kamu Sayangggg 🤍</h2>
+<h1>🍫</h1>
+<p style="color:white;">
+sayangggg aku ada kirimin paket, isinya coklat buat kamu 🤍🍫 coklat ini mungkin sederhana, ga mahal dan ga seberapa, tapi ini coklat pertama yang aku kasih buat kamu. dan kamu juga orang pertama yang nerima coklat dari aku. jujur aku seneng banget bisa ngirim ini ke kamu, rasanya hangat aja karena akhirnya bisa kasih sesuatu ke orang yang spesial banget buat aku. maafin yaa kalau coklatnya biasa aja, belum bisa kasih yang paling mewah atau paling besar. tapi di balik coklat kecil itu ada rasa sayang yang ga kecil sama sekali. semoga setiap manisnya bikin kamu inget kalau kamu berarti banget buat aku 🤍🍫
+</p>
+<button onclick="nextFlower()">Lihat Bunganya 💐</button>
+</div>
+
+<!-- PAGE 6 BUNGA -->
+<div id="page6">
+<div class="container">
+<h2 style="color:white;">Untuk Vilia Sayanggg 🤍</h2>
+<h1 style="font-size:100px;">💐</h1>
+<p style="color:white;">
+sayangggg aku ada kirimin paket, isinya bunga juga buat kamu 🤍🌸 bunga ini mungkin sederhana dan ga seberapa, tapi ini bunga pertama yang aku kasih buat kamu. dan kamu juga orang pertama yang aku kirimin bunga. aku seneng banget bisa ngasih ini ke kamu, rasanya hangat aja karena akhirnya bisa kasih sesuatu yang cantik ke orang yang paling cantik di mata aku. maafin yaa kalau bunganya ga besar atau ga mewah, tapi di setiap kelopaknya ada rasa sayang yang tulus banget buat kamu. semoga tiap kali kamu liat bunganya, kamu inget kalau ada aku yang selalu milih kamu dan sayang sama kamu 🤍🌷
+</p>
+<button onclick="goLongText()">Buka Pesan Lucu 🌸</button>
+</div>
+</div>
+
+<!-- PAGE 7 LONGTEXT -->
+<div id="page7">
+<div class="container">
+<h2 style="color:white;">Untuk Vilia Cantik 🤍</h2>
+
+<div class="flower-top">🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸</div>
+
+<div class="longtext">
+hari ini memang valentine, tapi buat aku rasa sayang ke kamu ga pernah kenal tanggal. dia ga cuma hidup di 14 februari, tapi di setiap hari, setiap jam, bahkan di detik-detik kecil yang kadang ga kamu sadari. sejauh apa pun hari membawa kamu pergi, sejauh apa pun jarak atau keadaan mencoba menguji kita, perasaan aku ke kamu tetap sama tetap milih kamu. di setiap doa yang aku bisikkan pelan-pelan, selalu ada nama kamu yang aku selipin. kamu itu rumah buat aku. tempat aku pulang waktu dunia lagi ribut, waktu hati lagi capek, waktu semuanya terasa terlalu berat. kamu bukan cuma orang yang aku sayang, tapi juga orang yang bikin aku ngerasa tenang cuma dengan ada. aku sayang kamu bukan cuma saat kamu ketawa dan lagi bahagia, tapi juga saat kamu lelah, lagi overthinking, lagi diem tanpa banyak kata. aku jatuh cinta sama kamu yang utuh sama senyummu, keras kepalamu, manjanya, sampai sisi rapuh yang mungkin ga semua orang bisa lihat. justru di situ aku makin yakin, kalau kamu memang untuk aku perjuangin. kalau pernah ada waktu kamu ngerasa sendirian walau ada aku, maafin ya sayanggg. bukan karena aku ga peduli, tapi mungkin aku masih belajar jadi yang terbaik buat kamu. tapi satu hal yang pasti, di setiap langkah aku, selalu ada kamu yang aku pikirin. aku ga janji hubungan ini akan selalu mudah. tapi aku janji satu hal aku akan selalu milih kamu lagi dan lagi. pelan-pelan kita jalan bareng, saling genggam lebih erat setiap harinya. selama kamu masih mau sama aku, aku bakal tetap di sini jaga rasa ini, rawat cinta ini, dan simpan kamu baik-baik di hati aku 🤍🌹
+
+kalau kamu jadi bunga, kamu pasti bunga paling pink, yang kalau diliat bikin orang senyum sendiri kayak orang lagi jatuh cinta. kalau kamu jadi coklat, kamu pasti coklat paling mahal, yang manisnya bikin nagih dan gak mau berbagi sama siapa-siapa 🤍 aku bersyukur banget bisa kenal kamu sayanggg. kadang kamu lucu banget, kadang kamu gemesin banget, kadang juga bikin aku senyum tanpa sadar. kalau dunia lagi ribut, aku cuma butuh kamu bilang “iya” dan semuanya langsung terasa tenang. terima kasih sudah jadi vilia yang cantik, yang baik, yang manis, dan (semoga) selamanya punya raka 🤍
+</div>
+
+<div class="flower-bottom">🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸</div>
+</div>
+</div>
+
+<div class="by">By Raka</div>
+
+<script>
+
+/* LOVE FALL */
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,300);
+
+/* PASSWORD */
+function togglePass(){
+let p=document.getElementById("pass");
+p.type=p.type==="password"?"text":"password";
+}
+
+function checkPass(){
+if(document.getElementById("pass").value==="viliapunyaraka"){
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+document.getElementById("bgm").play();
+showValentine();
+}
+else{alert("Sandi salah 🤍");}
+}
+
+/* VALENTINE */
+function showValentine(){
+let text="Happy Valentine Day 🤍";
+let i=0;
+function typing(){
+if(i<text.length){
+document.getElementById("valText").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,100);
+}
+}
+typing();
+setTimeout(()=>{
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+},4000);
+}
+
+/* SURAT */
+function openLetter(){
+document.querySelector(".envelope").classList.add("open");
+document.getElementById("openSound").play();
+}
+
+/* GAME */
+function nextGame(){
+document.getElementById("page3").classList.add("hidden");
+document.getElementById("page4").classList.remove("hidden");
+}
+
+function checkGame(){
+let ans=document.getElementById("answer").value.toLowerCase();
+if(ans==="vilia cantik"){
+document.getElementById("page4").classList.add("hidden");
+document.getElementById("page5").classList.remove("hidden");
+}
+else{alert("Salah 🤍");}
+}
+
+/* PINDAH KE BUNGA */
+function nextFlower(){
+document.getElementById("page5").classList.add("hidden");
+document.getElementById("page6").style.display="block";
+}
+
+/* LONGTEXT */
+function goLongText(){
+document.getElementById("page6").style.display="none";
+document.getElementById("page7").style.display="block";
+
+for(let i=0;i<10;i++){
+let f=document.createElement("div");
+f.className="bg-flower";
+f.innerHTML="🌸";
+f.style.top=Math.random()*100+"%";
+f.style.left=Math.random()*100+"%";
+document.getElementById("page7").appendChild(f);
+}
+}
+
+</script>
+
+</body>
+</html>
